@@ -13,6 +13,7 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 set background=dark
+let mapleader = ","
 
 "set guifont=ProggyCleanTT\ 12
 
@@ -78,4 +79,7 @@ endif
 "let g:airline_symbols.linenr = ''
 "let g:airline_symbols.space = "\ua0"
 
-
+" vim-gutter
+let g:gitgutter_enabled = 1
+let g:gitgutter_sign_enabled = 1
+let g:gitgutter_max_signs = 500
