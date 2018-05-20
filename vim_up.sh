@@ -20,6 +20,9 @@ git clone https://github.com/powerline/fonts.git --depth=1
 # install
 cd fonts
 ./install.sh
+# make font confgi
+echo "If the fonts will not shows up go to fonts folder and run this commands \$mkfontscale \$mkfontdir"
+
 # run config
 mkdir -p ~/.config/fontconfig
 cp fontconfig/50-enable-terminess-powerline.conf ~/.config/fontconfig/conf.d
