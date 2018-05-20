@@ -1,8 +1,11 @@
-" enable mouse rightclicking
-set mouse-=a
-
 " pathogen
 execute pathogen#infect()
+
+" Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
+
+" enable mouse rightclicking
+set mouse-=a
 
 " general
 set ttyfast
@@ -12,22 +15,41 @@ set number
 set shiftwidth=4
 set tabstop=4
 set expandtab
-set background=dark
 let mapleader = ","
 
-"set guifont=ProggyCleanTT\ 12
+" open paste mod with f2
+set pastetoggle=<F2>
 
+" bind window movement
+map <c-h> <c-w>h
+map <c-l> <c-w>l
+map <c-j> <c-w>j
+map <c-k> <c-w>k
 
-" solarized
+" easy tab movement
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
+
+" easy code moving
+vnoremap < <gv  " better indentation
+vnoremap > >gv  " better indentation
+
+" colorscheme
+set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
 set term=screen-256color
+colorscheme molokai
 
+" general style
+set tw=79 " width of document (used by gd)
+" set nowrap  " don't automatically wrap on load
+" set fo-=t   " don't automatically wrap text when typing
+set colorcolumn=80
+highlight ColorColumn ctermbg=234
 
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
-
 
 " ctrlp
 let g:ctrlp_map = '<c-p>'
@@ -45,41 +67,20 @@ let g:ctrlp_custom_ignore = {
 	\ }
 let g:ctrlp_user_command = 'find %s -type f'
 
+
+" airline-theme
+let g:airline_theme='dark'
+
+
 " air-line
-"let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '|'
-
-" unicode symbols
-"let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-"let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-"let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
-"let g:airline_symbols.branch = ''
-"let g:airline_symbols.readonly = ''
-"let g:airline_symbols.linenr = ''
-"let g:airline_symbols.space = "\ua0"
+" Always show statusline
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " vim-gutter
 let g:gitgutter_enabled = 1
 let g:gitgutter_sign_enabled = 1
 let g:gitgutter_max_signs = 500
+
+
