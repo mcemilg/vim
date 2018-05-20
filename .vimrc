@@ -46,6 +46,8 @@ set tw=79 " width of document (used by gd)
 " set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80
 highlight ColorColumn ctermbg=234
+set list          " Display unprintable characters f12 - switches
+set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
 
 
 " NERDTree
